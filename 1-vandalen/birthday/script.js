@@ -4,12 +4,10 @@ window.onload = function () {
 
 
     var birthday = function (date) {
-        try {
-            date == yyyy-MM--DD;
+        if(date.match("\\d{4}-\\d{2}-\\d{2}") == null){
+            throw new Error("Datumet är i fel format!");
         }
-        catch (ex) {
-            "Datumet är i fel format!"
-        }
+        
         var birthDay = new Date(date);
         var today = new Date();
         var bDay = new Date();
