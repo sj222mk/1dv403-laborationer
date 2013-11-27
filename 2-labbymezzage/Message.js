@@ -15,9 +15,7 @@ function Message(message, date) {
     }
 
     this.setDate = function (_date) {
-        var currentDate = new Date();
-        date = (currentDate.setHours() + ":" + currentDate.setMinutes());
-
+        var date = new Date();
     }
 }
 
