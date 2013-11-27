@@ -3,8 +3,7 @@
 
 var makePerson = function (persArr) {
     var result = {};
-    persArr.person = ["name", "age"];
-
+    
     var names = [];
     var minAge;
     var maxAge;
@@ -13,18 +12,33 @@ var makePerson = function (persArr) {
     persArr.forEach(function (person) {
         names.push(person.name);
 
-        minAge = (person.age).sort(function (a, b) {
+        minAge = age.sort(function (a, b) {
             return a.localeCompare(b).shift();
         });
 
-        maxAge = (person.age).sort(function (a, b) {
+        maxAge = age.sort(function (a, b) {
             return a.localeCompare(b).pop();
         });
 
-        totalAge = (person.age).reduce(function (a, b) {
+        totalAge = age.reduce(function (a, b) {
             return a + b;
         });
     });
+
+    /*function Person(name, age) {
+        this.getName = function () {
+            if (typeof (name) == string) {
+                return name;
+            }
+        };
+        this.getAge = function () {
+            if (typeof(age) == number){
+                return age; 
+            }        
+        };
+    }*/
+
+    var person = new Person(name, age);
 
     var averageAge = totalAge / persArr.length;
 
