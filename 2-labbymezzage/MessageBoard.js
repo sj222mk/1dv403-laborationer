@@ -1,34 +1,22 @@
 ﻿"use strict";
 
-var mezz = {
+var MessageBoard = {
 
     messages: [],
 
-    init: function (e) {
-        var mess = new Message(e, new Date());
-        messages.push(mess.text); 
-        alert(messages[0].getText());
-        //alert(mess.getText());
-        //mess.setText("En annan test");
-        //alert(mess);
+    init: function () {
+        var text = "Test1";
+        var mess = new Message(text, new Date());
+        this.messages.push(text);
+        text = "Test2";
+        this.messages.push(text);
+        this.messages.push("test3", "test4");
+        alert(this.messages)
     }
 };
-
-window.onload = init("Testmeddelande");  
-
+window.onload = MessageBoard.init();
 
 
-//    var mess = new Message("Testmeddelande", new Date());
-//    alert(mess);
-//    alert(mess.getText());
-//    mess.setText("En annan test");
-//    alert(mess);
 
 
-//window.onload = init();  
-//messages.push(message.text);
 
-
-//var p = document.querySelector("#value"); 
-//var input = document.querySelector("#string");
-//var submit = document.querySelector("#send");

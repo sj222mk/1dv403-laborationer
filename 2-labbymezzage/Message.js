@@ -6,8 +6,8 @@ function Message(message, date) {
         return message;
     }
     
-    this.setText = function(_text){
-        message = text;
+    this.setText = function(_text) {
+        message = _text;
     }
 
     this.getDate = function(){
@@ -25,6 +25,12 @@ Message.prototype.toString = function () {
 
 Message.prototype.getHTMLText = function () {
     this.getText();
-    return this.setText();
+    return this.message.replace(/[\n\r]/g, "<br />");
+    //return this.setText();
+}
+
+Message.prototype.getDateText = function () {
+    this.getDate();
+    return this.date();
 }
 
