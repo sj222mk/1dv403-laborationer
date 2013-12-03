@@ -17,28 +17,28 @@
 
 #content
     {
-        margin: 5px;
-        padding: 15px;
-        max-width: 70%;
-        vertical-align: middle;
+    margin: 5px;
+    padding: 15px;
+    max-width: 70%;
+    vertical-align: middle;
     }
 
 #board
     {
-        width: 50%;
-        height: auto;
-        margin-bottom: 50px;
-        overflow: auto;
-        overflow-x: hidden;
-        overflow-y: hidden;
+    width: 50%;
+    height: auto;
+    margin-bottom: 50px;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
     }
     
 #text
     {
-        width: 100%;
-        height: 200px;
-        margin-bottom: 10px;
-        overflow: auto;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+    overflow: auto;
     }
 
 /*== Colors =====================================================================*/
@@ -48,9 +48,9 @@
 /*== Type =======================================================================*/
 body
     {
-        font-family: "Century Gothic", "Calibri",  sans-serif;
-        font-size: 1.5em;
-        color: #009999;
+    font-family: "Century Gothic", "Calibri",  sans-serif;
+    font-size: 1.5em;
+    color: #009999;
     }
 
 h1{font-weight: bold; text-align: center; }
@@ -60,7 +60,7 @@ h1{font-weight: bold; text-align: center; }
 
 /*== Text-area ==============================================================*/
 #board
-{ 
+    { 
     color: #787979; 
     margin-left: 35%;
     border: 3px solid #787979; 
@@ -68,9 +68,38 @@ h1{font-weight: bold; text-align: center; }
     font-size: 14px;
     background-color: #E2FF8C;
     width: auto; 
-}
+    }
+
+#board p
+    {
+    color: #787979; 
+    border: 2px solid #787979;
+    padding-left: 4px; 
+    padding-right: 3px;
+    font-size: 14px;
+    width: auto; 
+    }
+    
+#board p br
+    {
+       font-size: 10px;
+       text-align: right;     
+    }
+    
+#board p:last-of-type
+    {
+    color: #787979; 
+    border: none; 
+    padding-left: 4px; 
+    padding-right: 3px;
+    font-size: 12px;
+    background-color: #E2FF8C;
+    width: auto; 
+    text-align: right;
+    }
+
 #text
-{ 
+    { 
     color: #787979; 
     border: 1px solid #CDF93E; 
     padding-left: 4px; 
@@ -78,15 +107,16 @@ h1{font-weight: bold; text-align: center; }
     font-size: 14px;
     background-color: #E2FF8C;
     width: auto; 
-}
+    text-align: left;
+    }
 
 #submitButton
     {
-        float: right;
-        margin-bottom: 5px;
-        margin-right: 15px;
-        background-color: #57EB44;
-        border: 1px solid #787879;
-        padding: 5px;
-        font-weight: bold;
+    float: right;
+    margin-bottom: 5px;
+    margin-right: 15px;
+    background-color: #57EB44;
+    border: 1px solid #787879;
+    padding: 5px;
+    font-weight: bold;
     }
