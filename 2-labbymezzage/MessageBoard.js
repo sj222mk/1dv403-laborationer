@@ -14,7 +14,9 @@ var MessageBoard = {
         alert(this.messages)
     }
 };
-window.onload = MessageBoard.init();
+window.onload = function () {
+    new MessageBoard("board");
+};
 
 
 
