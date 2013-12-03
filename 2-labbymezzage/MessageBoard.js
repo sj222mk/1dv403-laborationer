@@ -4,15 +4,17 @@ var MessageBoard = {
 
     messages: [],
 
-    init: function () {
-        var text = "Test1";
-        var mess = new Message(text, new Date());
-        this.messages.push(text);
-        text = "Test2";
-        this.messages.push(text);
-        this.messages.push("test3", "test4");
-        alert(this.messages)
-    }
+    document.getElementById("submitButton").onclick = function(){
+    mess = doc.getElementById("textarea").value;
+    if(mess !== undefined){
+        addMessage(mess);
+        };
+    } 
+    var addMessage = function (text) {
+        var newMessage = new Message(text, new Date());
+        newMessage.push();
+        }
+   
 };
 window.onload = function () {
     new MessageBoard("board");

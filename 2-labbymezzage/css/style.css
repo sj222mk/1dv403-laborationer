@@ -15,19 +15,6 @@
     width: auto;
 	}
 
-/*#board
-    {
-    margin-left: 50px
-    margin-right: 50px;
-    margin-top: 40px;
-    margin-bottom: 10px;
-    border: solid #535354 3px; 
-    
-    padding: 1px;
-    text-align: left; 
-    vertical-align: central;
-    }*/
-
 #content
     {
         margin: 5px;
@@ -45,6 +32,7 @@
         overflow-x: hidden;
         overflow-y: hidden;
     }
+    
 #text
     {
         width: 100%;
@@ -57,14 +45,11 @@
 #container {background-color: #57EB44; }
 #header {background-color: transparent; }
 
-
-
-
 /*== Type =======================================================================*/
 body
     {
         font-family: "Century Gothic", "Calibri",  sans-serif;
-        font-size: 1.1em;
+        font-size: 1.5em;
         color: #009999;
     }
 
@@ -95,7 +80,7 @@ h1{font-weight: bold; text-align: center; }
     width: auto; 
 }
 
-#submit
+#submitButton
     {
         float: right;
         margin-bottom: 5px;
