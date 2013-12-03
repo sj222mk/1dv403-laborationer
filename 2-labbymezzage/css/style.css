@@ -1,0 +1,60 @@
+﻿/*== Layout =====================================================================*/
+#container
+	{
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    max-width: 960px;
+    margin: auto;
+	}
+	
+#header
+	{
+    margin: 5px;
+    padding: 5px;
+    width: auto;
+	}
+
+/*#board
+    {
+    margin-left: 50px
+    margin-right: 50px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    border: solid #535354 3px; 
+    
+    padding: 1px;
+    text-align: left; 
+    vertical-align: central;
+    }*/
+
+.textarea
+    {
+        width: 50%;
+        height: 600px;
+        vertical-align: central;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        overflow: auto;
+        text-align: left;
+    }
+
+/*== Colors =====================================================================*/
+#container {background-color: #67E667; }
+#header {background-color: transparent; }
+#content {background-color: transparent; }
+
+.textarea{ border: solid #009999 3px; }
+
+/*== Type =======================================================================*/
+body
+    {
+        font-family: "Century Gothic", "Calibri",  sans-serif;
+        font-size: 1.1em;
+        color: #009999;
+    }
+
+h1{font-weight: bold; text-align: center; }
+
+/*== Header - logo ==============================================================*/
+#header h1 {margin-left: 40px; margin-right: 60px; text-align: center; }
