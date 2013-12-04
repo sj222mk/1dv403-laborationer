@@ -1,35 +1,37 @@
-﻿"use strict";
+"use strict";
+var messageSystem = messageSystem || {};
 //Konstruktorfunktion - klass för meddelanden
-function Message(message, date) {
+messageSystem.Message = function (message, date) {
 
     this.getText = function () {
         return message;
-    }
+    };
     
     this.setText = function(_text) {
         message = _text;
-    }
+    };
 
     this.getDate = function(){
         return date;
-    }
+    };
 
     this.setDate = function (_date) {
-        var date = new Date();
-    }
+        _date = new Date();
+    };
+    
 }
 
-Message.prototype.toString = function () {
+messageSystem.Message.prototype.toString = function () {
     return this.getText() + " (" + this.getDate() + ")";
-}
+};
 
-Message.prototype.getHTMLText = function () {
-    this.getText();
-    return this.message.replace(/[\n\r]/g, "<br />");
-}
+messageSystem.Message.prototype.getHTMLText = function () {
+    var message = this.getText();
+    return message.replace(/[\n\r]/g, "<br />");
+};
 
-Message.prototype.getDateText = function () {
+messageSystem.Message.prototype.getDateText = function () {
     this.getDate();
     return this.date();
-}
+};
 
