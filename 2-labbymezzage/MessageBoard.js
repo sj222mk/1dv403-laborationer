@@ -18,9 +18,11 @@ messageSystem.MessageBoard = {
             for(var i=0; i < messageSystem.MessageBoard.messages.length; ++i){
                 messageSystem.renderMessage(i);
             }
+            messageSystem.messageCount();
         }
     }
 };
+
     messageSystem.init = function(){
         
         
@@ -28,10 +30,13 @@ messageSystem.MessageBoard = {
         var mess = document.getElementById("text").value;
         if(mess !== undefined){
             messageSystem.addMessage(mess);
-            messageSystem.messageCount();
             }
         }; 
         messageSystem.messageCount();
+        
+        /*document.getElementById("closeButton").onclick = function() {
+            messageSystem.messageBoard.removeMessage(messageID);
+        }*/
     };
     
     messageSystem.addMessage = function (text) {
@@ -40,12 +45,10 @@ messageSystem.MessageBoard = {
         messageSystem.MessageBoard.renderMessages();
         };
     
-    /*messageSystem.showTime = function(){
-        alert("Visa tid");
-    }
-    */
-    messageSystem.removeMessage = function(){
-      alert("är du säker?");  
+    messageSystem.removeMessage = function(messageID){
+      //If-sats = är du säker?
+        messageSystem.MessageBoard.messages.splice(messageID, 1);
+        messageSystem.MessageBoard.renderMessages();
     };
     
     messageSystem.messageCount = function(){
@@ -87,7 +90,7 @@ messageSystem.MessageBoard = {
         imgClose.alt = "Ta bort-knapp";
         
         imgClose.onclick =  function(){
-            messageSystem.messageBoard.removeMessage(messageID);
+            messageSystem.removeMessage(messageID);
         };
         div.appendChild(imgClose);
         
