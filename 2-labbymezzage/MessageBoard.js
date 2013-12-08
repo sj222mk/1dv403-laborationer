@@ -6,14 +6,13 @@ messageSystem.MessageBoard = {
     messages : [],
      
     renderMessages: function(){
-        //Remove all messages
+        //Tar bort alla meddelanden
         document.getElementById("board").innerHTML = "";
         var textArea = document.getElementById("text");
         textArea.value = "";
         textArea.focus();
         
-
-        //Renders all messages
+        //Skriver ut alla meddelanden
         if(this.messages !== undefined){
             for(var i=0; i < messageSystem.MessageBoard.messages.length; ++i){
                 messageSystem.renderMessage(i);
@@ -41,12 +40,6 @@ messageSystem.MessageBoard = {
         messageSystem.MessageBoard.renderMessages();
         };
     
-    messageSystem.removeMessage = function(messageID){
-      //If-sats = är du säker?
-        messageSystem.MessageBoard.messages.splice(messageID, 1);
-        messageSystem.MessageBoard.renderMessages();
-    };
-    
     messageSystem.messageCount = function(){
         var count = document.createElement("p");
         var number = messageSystem.MessageBoard.messages.length;
@@ -54,6 +47,16 @@ messageSystem.MessageBoard = {
         
         var messageBoard = document.getElementById("board");
         messageBoard.appendChild(count);
+    };
+    
+    messageSystem.messageTime = function(messageID){
+        alert(messageSystem.MessageBoard.messages[messageID].toString());
+    };
+    
+    messageSystem.removeMessage = function(messageID){
+      //If-sats = är du säker?
+        messageSystem.MessageBoard.messages.splice(messageID, 1);
+        messageSystem.MessageBoard.renderMessages();
     };
     
     messageSystem.renderMessage = function(messageID) {
@@ -80,18 +83,18 @@ messageSystem.MessageBoard = {
         imgTime.alt = "Tid-knapp";
         
         imgTime.onclick =  function(){
-            messageSystem.messageBoard.showTime(messageID);
+            messageSystem.messageTime(messageID);
         };
         div.appendChild(imgTime);
         
-        //Lägger til text i meddelande
+        //Lägger till text i meddelande
         var text = document.createElement("p");
         text.innerHTML = messageSystem.MessageBoard.messages[messageID].getHTMLText();
         div.appendChild(text);
         
         //Lägger till tid i meddelande
         var time = document.createElement("p");
-        time.innerHTML = messageSystem.MessageBoard.messages[messageID].getDate();
+        time.innerHTML = messageSystem.MessageBoard.messages[messageID].getDateText();
         div.appendChild(time);
         
         var board = document.getElementById("board");
