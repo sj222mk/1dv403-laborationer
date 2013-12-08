@@ -96,20 +96,26 @@ h1{font-weight: bold; text-align: center; }
     text-align: left; 
     }
     
-#board:last-child /*Antal meddelanden*/
+#board p /*:first-child /*Första raden i meddelandet*/
     {
-       border: none; 
-       font-size: 0.7em;
-       text-align: right;   
+    margin: 5px 55px 5px 5px;
     }
    
 #board p:last-child  /*Tid i meddelande*/
     {
     border: none; 
     font-size: 0.7em;
+    margin: 5px 0 10px 5px;
     text-align: right;
     }
 
+#board:last-child /*Antal meddelanden*/
+    {
+       border: none; 
+       font-size: 0.7em;
+       text-align: right;   
+    }
+    
 #text /*Inmatningstextruta*/
     { 
     border: 1px solid #787879; 
@@ -118,7 +124,7 @@ h1{font-weight: bold; text-align: center; }
     }
 
 /*== Knappar ====================================================================*/
-#submitButton
+#submitButton /*Skicka-knapp*/
     {
     /*background-color: #57EB44;
     border: 1px solid #787879;
@@ -129,3 +135,10 @@ h1{font-weight: bold; text-align: center; }
     margin-right: 15px;
     padding: 5px;
     }
+    
+#board div img /* Små-knappar i meddelande */
+    {
+        float: right;
+        margin-top: 5px;
+    }
+    
