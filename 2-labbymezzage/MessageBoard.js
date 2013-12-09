@@ -24,14 +24,25 @@ messageSystem.MessageBoard = {
 
     messageSystem.init = function(){
         
-        
         document.getElementById("submitButton").onclick = function(){
         var mess = document.getElementById("text").value;
-        if(mess !== undefined){
+        if(mess !== null){
             messageSystem.addMessage(mess);
             }
         }; 
-        messageSystem.messageCount();
+        
+        
+        document.getElementById("text").onkeypress = function(e){
+            var mess = document.getElementById("text").value;
+            if(!e){
+                e = window.event;
+            }
+            if(e.keyCode === 13){
+                if(e.shiftKey === false){
+                messageSystem.addMessage(mess);
+                }
+            }
+        };
     };
     
     messageSystem.addMessage = function (text) {
@@ -54,9 +65,11 @@ messageSystem.MessageBoard = {
     };
     
     messageSystem.removeMessage = function(messageID){
-      //If-sats = är du säker?
+        var conf = window.confirm("Vill du verkligen radera meddelandet?");
+        if(conf === true){
         messageSystem.MessageBoard.messages.splice(messageID, 1);
         messageSystem.MessageBoard.renderMessages();
+        }
     };
     
     messageSystem.renderMessage = function(messageID) {
