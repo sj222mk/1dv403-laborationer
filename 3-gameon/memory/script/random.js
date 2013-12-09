@@ -2,7 +2,7 @@
 
 var memoryGame = memoryGame || {};
 
-var RandomGenerator = {
+memoryGame.RandomGenerator = {
 	
 	/*
 		Denna metod tar antalet rader och columner som inparameter.
@@ -21,11 +21,11 @@ var RandomGenerator = {
 		var numberOfImages = rows*cols;
 		var maxImageNumber = numberOfImages/2;
 	
-	   	var imgPlace = [];
+    var imgPlace = [];
 	
-	   //Utplacering av bilder i Array
-	   for(var i=0; i<numberOfImages; i++)
-		  imgPlace[i] = 0;
+    //Utplacering av bilder i Array
+	for(var i=0; i<numberOfImages; i++)
+        imgPlace[i] = 0;
 	
 		for(var currentImageNumber=1; currentImageNumber<=maxImageNumber; currentImageNumber++)
 		{		
@@ -61,4 +61,4 @@ var RandomGenerator = {
 		
 		return imgPlace;
 	}
-}
+};
