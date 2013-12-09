@@ -31,7 +31,6 @@ messageSystem.MessageBoard = {
             }
         }; 
         
-        
         document.getElementById("text").onkeypress = function(e){
             var mess = document.getElementById("text").value;
             if(!e){
