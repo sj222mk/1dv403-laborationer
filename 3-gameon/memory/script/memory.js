@@ -8,7 +8,10 @@ memoryGame.Memory = {
 };
 
     memoryGame.init = function(){
-        onload.event();
+        
        
         }; 
-        
+
+window.onload = function () {
+   memoryGame.init();
+};
