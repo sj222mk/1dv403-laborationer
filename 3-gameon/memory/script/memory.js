@@ -25,21 +25,22 @@ memoryGame.Memory = {
         var tbody = document.createElement("tbody"); 
         table.appendChild(tbody);
         
-      
-        /*tbody.insertRow(0);
-        tbody.rows[0].insertCell(0);
-        tbody.rows[0].cells[0].appendChild(document.create("Cell 1,1"));
-        tbody.rows[0].insertCell(1);
-        tbody.rows[0].cells[1].appendChild(document.createTextNode("Cell 2,1"));*/
-        
         for(var r = 0; r < rows; r++){
             tbody.insertRow(r);
             
             for(var c = 0; c < cols; c++){
                 tbody.rows[r].insertCell(c);
+                var a = document.createElement("a");
+                a.onclick = function(){
+                    
+                };
+                
                 var img = document.createElement("img");
                 img.src = "pics/" + memoryGame.Memory.random[no] + ".png";
-                tbody.rows[r].cells[c].appendChild(img);
+                
+                a.appendChild(img);
+                tbody.rows[r].cells[c].appendChild(a);
+                
                 no += 1;
             }
         }
