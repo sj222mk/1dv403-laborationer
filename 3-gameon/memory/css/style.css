@@ -1,0 +1,70 @@
+#container
+	{
+    margin: auto;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    max-width: 960px;
+	}
+	
+#header
+	{
+    margin: 5px;
+    padding: 5px;
+    width: auto;
+	}
+
+#content
+    {
+    margin: 5px;
+    padding: 0 0 0 15px;
+    max-width: 70%;
+    }
+    
+.table
+    {
+    height: 500px;
+    margin-bottom: 50px;
+    margin-left: 35%;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 0;
+    width: 500px;
+    }
+    
+    /*== Colors =====================================================================*/
+#container {background-color: green; }
+#header {background-color: transparent; }
+#table {background-color: #57EB44; }
+
+/*== Type =======================================================================*/
+body
+    {
+    font-family: "Century Gothic", "Calibri",  sans-serif;
+    font-size: 1.1em;
+    color: #787979;
+    }
+
+h1{font-weight: bold; text-align: center; }
+
+ /*== Tabell ======================================================================================================================*/
+        
+                 #table /*Runt*/
+                 {
+                     border: solid #535354 3px;
+                     float: left;
+                     padding: 1px;
+                     text-align: center;
+                    
+                     margin-bottom: 50px;
+                 }
+                 
+                 #table cell /*Celler*/
+                 {
+                    border: groove #9C9C9E 5px;
+                    padding: 5px;
+                 }
+                
+                #table tfoot td {text-align: left; font-style: italic; }
+                
