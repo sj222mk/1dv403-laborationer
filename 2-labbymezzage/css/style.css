@@ -61,7 +61,7 @@
 #board {background-color: transparent; }
 #board div {background-color: #E2FF8C; }
 #board:last-child {background-color: #57EB44; }
-#text {background-color: transparent; }
+#text {background-color: #E2FF8C; }
 
 /*== Type =======================================================================*/
 body

@@ -89,7 +89,6 @@ messageSystem.MessageBoard = {
         
         //Lägger till tid-knapp i meddelande
         var imgTime = document.createElement("img");
-        imgTime.href = "#";
         imgTime.src = "pics/clock_green24.png";
         imgTime.class = "messageButtons";
         imgTime.alt = "Tid-knapp";
