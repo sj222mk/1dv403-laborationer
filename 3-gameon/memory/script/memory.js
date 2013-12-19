@@ -2,7 +2,8 @@
 
 var memoryGame = memoryGame || {};
 
-memoryGame.counter = 0;
+memoryGame.counterDraw = 0;
+memoryGame.counterAlike = 0;
 memoryGame.picOne;
 memoryGame.picTwo;
 
@@ -46,15 +47,12 @@ memoryGame.Memory = {
                 img.name = no;
                 
                 a.onclick = function(){
-                    
                     memoryGame.turnAround(this);
                 };
                 
                 a.appendChild(img);
                 tbody.rows[r].cells[c].appendChild(a);
-                
-                
-                
+
                 no += 1;
             }
         }
@@ -68,12 +66,15 @@ memoryGame.Memory = {
                 memoryGame.turnBack(); 
                 }, 1000);
             }
+        else{
+            memoryGame.counterAlike +=1;
+        }
     };
     
     memoryGame.turnAround = function(a){
-        memoryGame.counter +=1;
+        memoryGame.counterDraw +=1;
         
-        if (memoryGame.counter % 2 !== 0){        
+        if (memoryGame.counterDraw % 2 !== 0){        
             memoryGame.picOne = a;
             memoryGame.picOne.children[0].src = "pics/" + memoryGame.Memory.random[memoryGame.picOne.id] + ".png";
         }
