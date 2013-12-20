@@ -10,12 +10,12 @@ memoryGame.picTwo;
 memoryGame.Memory = {
     random : [],
 
-};
 
-    memoryGame.init = function(e){
-        var row = 3;
+
+    init : function(){
         var col = 4;
-        
+        var row = 3;
+        /*memoryGame.id = node;*/
         memoryGame.RandomGenerator.getPictureArray(row, col).forEach(function(number){
             memoryGame.Memory.random.push(number); 
         });
@@ -23,14 +23,22 @@ memoryGame.Memory = {
         memoryGame.makeTable(row, col);
         
         
-    }; 
-    
+    } 
+};    
     memoryGame.makeTable = function(rows, cols){
         var no = 0;
         
         var table = document.createElement("table");
+        var thead = document.createElement("thead");
+        
+        var th = document.createElement("th");
+        th.colSpan = cols;
+        th.innerHTML = "Spel 1";
+        thead.appendChild(th);
+        table.appendChild(thead);
         var tbody = document.createElement("tbody"); 
         table.appendChild(tbody);
+        
         
         for(var r = 0; r < rows; r++){
             tbody.insertRow(r);
@@ -56,8 +64,8 @@ memoryGame.Memory = {
                 no += 1;
             }
         }
-        
-        document.body.appendChild(table);
+        var memory = document.getElementById("memory1");
+        memory.appendChild(table);
     };
     
     memoryGame.lookAlike = function(){
@@ -68,6 +76,12 @@ memoryGame.Memory = {
             }
         else{
             memoryGame.counterAlike +=1;
+            
+            if(memoryGame.counterAlike === memoryGame.col * memoryGame.row / 2){
+                setTimeout(function(){
+                    alert("Spelet är slut! Du klarade det på " + memoryGame.counterDraw/2 + " försök!");
+                }, 1000);
+            }
         }
     };
     
@@ -91,5 +105,5 @@ memoryGame.Memory = {
     };
 
 window.onload = function () {
-   memoryGame.init();
+   memoryGame.Memory.init();
 };

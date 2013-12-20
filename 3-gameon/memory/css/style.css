@@ -21,29 +21,23 @@
     max-width: 70%;
     }
     
-#cards
+.memory
     {
-        margin: 5px;
-        padding: 5px;
-        height: 50px;
-        width: 50px;
-    }
-.table
-    {
-    height: 500px;
-    margin-bottom: 50px;
-    margin-left: 35%;
+    border-radius: 10px;
+    float: left;
+    height: auto;
+    margin: 30px;
     overflow: auto;
     overflow-x: hidden;
     overflow-y: hidden;
-    padding: 0;
-    width: 500px;
+    padding: 5px 25px;
+    width: auto;
     }
     
     /*== Colors =====================================================================*/
 #container {background-color: green; }
 #header {background-color: transparent; }
-#table {background-color: #57EB44; }
+.memory {background-color: white; }
 
 /*== Type =======================================================================*/
 body
@@ -53,22 +47,23 @@ body
     color: #787979;
     }
 
-h1{font-weight: bold; text-align: center; }
+h1, h2{font-weight: bold; text-align: center; }
 
  /*== Tabell ======================================================================================================================*/
         
-                 #table /*Runt*/
+                 table /*Runt*/
                  {
-                     border: solid #535354 3px;
-                     padding: 1px;
-                    
-                     margin-bottom: 50px;
+                     margin: 20px auto;
                  }
                  
-                 #table td /*Celler*/
+                 th /*Rubrikrad*/
                  {
-                    border: groove #9C9C9E 5px;
-                    padding: 5px;
+                    padding: 10px;
+                 }
+                 
+                 td /*Celler*/
+                 {
+                    padding: 10px;
                  }
                 
                
