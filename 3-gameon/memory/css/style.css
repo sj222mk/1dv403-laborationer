@@ -1,10 +1,12 @@
 #container
 	{
-    margin: auto;
+    border-radius: 20px;
+    margin: 10%;
     overflow: auto;
     overflow-x: hidden;
     overflow-y: hidden;
-    max-width: 960px;
+    max-height: 80%;
+    max-width: 80%;
 	}
 	
 #header
@@ -16,26 +18,54 @@
 
 #content
     {
-    margin: 5px;
-    padding: 0 0 0 15px;
-    max-width: 70%;
+    float: left;
+    margin: 1%;
+    padding: 0 0 0 1%;
+    width: 95%;
     }
     
-.memory
+#memory1
     {
-    border-radius: 10px;
+    border-radius: 20px;
     float: left;
     height: auto;
-    margin: 30px;
+    margin: 25px;
     overflow: auto;
     overflow-x: hidden;
     overflow-y: hidden;
-    padding: 5px 25px;
+    padding: 0;
+    width:auto;
+    }
+    
+#memory2
+    {
+    border-radius: 20px;
+    float: left;
+    height: auto;
+    margin: 25px;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 0;
+    width: auto;
+    } 
+
+#memory3
+    {
+    border-radius: 20px;
+    float: right;
+    height: auto;
+    margin: 25px;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 0;
     width: auto;
     }
     
+    
     /*== Colors =====================================================================*/
-#container {background-color: green; }
+#container {background-color: #57EB44; }
 #header {background-color: transparent; }
 .memory {background-color: white; }
 
@@ -44,7 +74,7 @@ body
     {
     font-family: "Century Gothic", "Calibri",  sans-serif;
     font-size: 1.1em;
-    color: #787979;
+    color: #6A6A6B;
     }
 
 h1, h2{font-weight: bold; text-align: center; }
@@ -53,17 +83,20 @@ h1, h2{font-weight: bold; text-align: center; }
         
                  table /*Runt*/
                  {
-                     margin: 20px auto;
+                    border: groove #6A6A6B 5px;
+                    border-radius: 20px;
+                    margin: 15px;
                  }
                  
                  th /*Rubrikrad*/
                  {
-                    padding: 10px;
+                    padding: 15px;
+                    vertical-align: top;
                  }
                  
                  td /*Celler*/
                  {
-                    padding: 10px;
+                    padding: 25px
                  }
                 
                
