@@ -33,7 +33,6 @@ memoryGame.Memory = function(rows, cols, memoryId, memoryName){
         var tbody = document.createElement("tbody"); 
         table.appendChild(tbody);
         
-        
         for(var r = 0; r < row; r++){
             tbody.insertRow(r);
             

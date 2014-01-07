@@ -1,0 +1,113 @@
+/*== Layout =====================================================================*/
+#container
+	{
+    margin: auto;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    max-width: 960px;
+	}
+	
+#header
+	{
+    margin: 5px;
+    padding: 5px;
+    width: auto;
+	}
+
+#content
+    {
+    margin: 5px;
+    padding: 0 0 0 15px;
+    max-width: 70%;
+    }
+    
+
+/*== Colors =====================================================================*/
+#container {background-color: white; }
+#header {background-color: transparent; }
+#text {background-color: #E2FF8C; }
+
+/*== Type =======================================================================*/
+body
+    {
+    font-family: "Century Gothic", "Calibri",  sans-serif;
+    font-size: 1.1em;
+    color: #787979;
+    }
+
+h1{font-weight: bold; text-align: center; }
+
+/*== Header - logo ==============================================================*/
+
+
+/*== Formulär ======================================================================================================================*/
+
+                #form {width: 50%;}
+                
+                #form fieldset
+                {
+                    background-color: #57EB44;
+                    border: groove #6A6A6B 5px;
+                    border-radius: 20px;
+                    color: #6A6A6B;
+                    margin: 40px;
+                    padding: 40px;
+                }
+                
+                #form legend
+                {
+                    background-color: #57EB44;
+                    color: #6A6A6B; 
+                    font-size: 20px;
+                    font-weight: bold;
+                    letter-spacing: 7px;
+                    margin-left: 20px;
+                    padding: 2px 2px 2px 3px;
+                }
+               
+                #form select, input
+                { 
+                    background-color: #E2FF8C;
+                    border: 2px solid #787979;
+                    border-radius: 5px;
+                    color: #6A6A6B;
+                    font-size: 14px;
+                    padding: 5px; 
+                    width: auto; 
+                }
+                
+                #form input
+                {
+                    font-weight: lighter;
+                    text-align: left;
+                }
+               
+               #form.place-holder
+                {
+                    font-style: italic;
+                }
+                
+                #form label
+                {
+                    color: #6A6A6B;
+                    text-align: left;
+                }
+                
+               
+                
+/*== Knappar ====================================================================*/
+#submitButton /*Skicka-knapp*/
+    {
+    /*background-color: #57EB44;
+    border: 1px solid #787879;
+    color: #787879;*/
+    float: right;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-right: 15px;
+    padding: 5px;
+    }
+    
+
+    
