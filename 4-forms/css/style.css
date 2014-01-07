@@ -17,9 +17,10 @@
 
 #content
     {
+    
     margin: 5px;
     padding: 0 0 0 15px;
-    max-width: 70%;
+    width: auto;
     }
     
 
@@ -43,7 +44,11 @@ h1{font-weight: bold; text-align: center; }
 
 /*== Formulär ======================================================================================================================*/
 
-                #form {width: 50%;}
+                #form 
+                {
+                    margin: 0 20%;
+                    width: auto;
+                }
                 
                 #form fieldset
                 {
@@ -51,6 +56,7 @@ h1{font-weight: bold; text-align: center; }
                     border: groove #6A6A6B 5px;
                     border-radius: 20px;
                     color: #6A6A6B;
+                    float: none;
                     margin: 40px;
                     padding: 40px;
                 }
@@ -61,39 +67,28 @@ h1{font-weight: bold; text-align: center; }
                     color: #6A6A6B; 
                     font-size: 20px;
                     font-weight: bold;
-                    letter-spacing: 7px;
-                    margin-left: 20px;
+                    letter-spacing: 4px;
+                    margin-left: 5px;
                     padding: 2px 2px 2px 3px;
                 }
                
                 #form select, input
                 { 
                     background-color: #E2FF8C;
-                    border: 2px solid #787979;
+                    border: 2px solid #6A6A6B;
                     border-radius: 5px;
                     color: #6A6A6B;
                     font-size: 14px;
+                    
                     padding: 5px; 
-                    width: auto; 
+                    width: 50%; 
                 }
                 
-                #form input
+                #form select, input, label
                 {
-                    font-weight: lighter;
-                    text-align: left;
+                    margin-left: 20%;
+                    margin-right: 25%;
                 }
-               
-               #form.place-holder
-                {
-                    font-style: italic;
-                }
-                
-                #form label
-                {
-                    color: #6A6A6B;
-                    text-align: left;
-                }
-                
                
                 
 /*== Knappar ====================================================================*/
