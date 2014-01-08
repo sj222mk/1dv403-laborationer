@@ -69,6 +69,8 @@ memoryGame.Memory = function(rows, cols, memoryId, memoryName){
             }
         else{
             counterAlike +=1;
+            picOne.onclick = null;
+            picTwo.onclick = null;
             
             if(counterAlike === col * row / 2){
                 setTimeout(function(){
