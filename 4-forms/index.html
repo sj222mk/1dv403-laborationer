@@ -20,23 +20,24 @@
                             <fieldset>
                             <legend>Fyll i din betalningsplan</legend>
                             <p><label for="fname">Förnamn:</label><br>
-                                <input class="name" type="text" id="fname" name="fname" tabindex="1" placeholder="Förnamn" required /></p>
+                                <input class="test" type="text" id="fname" name="fname" placeholder="Förnamn" required /></p>
                             <p><label for="lname">Efternamn:</label><br>
-                                <input class="name" type="text" id="lname" name="lname" tabindex="2" placeholder="Efternamn" required/></p>
+                                <input class="test" type="text" id="lname" name="lname" placeholder="Efternamn" required/></p>
                             <p><label for="pnr">Postnummer:</label><br>
-                                <input class="pnr" type="text" id="pnr" name="pnr" tabindex="3" placeholder="12345" required/></p>
+                                <input class="test" type="text" id="pnr" name="pnr" placeholder="12345" required/></p>
                             <p><label for="email">E-post:</label><br>
-                                <input class="email" type="email" id="email" name="email" tabindex="4" placeholder="epost@adress.com" required/></p>
+                                <input class="test" type="email" id="email" name="email" placeholder="epost@adress.com" required/></p>
                             
                             <p><label>Prismodell:</label><br>
-                                <select class="list" id="price" name="price" tabindex="5"> 
+                                <select class="test" name="price" id="price"> 
+                                    <option value="def" >Välj alternativ</option>
                                     <option value="low" >Låg</option>
                                     <option value="middle" >Mellan</option>
                                     <option value="high" >Hög</option>
                                 </select>
                             </p>
+                            <button id="submitButton" type="submit">Skicka!</button>
                             </fieldset>
-                            <button id="submitButton" type="submit" tabindex="6">Skicka!</button>
                         </form>
                         </div>
             
