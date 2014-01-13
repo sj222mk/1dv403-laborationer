@@ -23,6 +23,14 @@
     width: auto;
     }
     
+#pop
+    {
+    margin: auto;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    max-width: 600px;  
+    }
 
 /*== Colors =====================================================================*/
 #container {background-color: white; }
@@ -39,12 +47,12 @@ body
 
 h1{font-weight: bold; text-align: center; }
 
-
+h2{text-align: left; margin-top: 10%; }
 
 /*== Header - logo ==============================================================*/
 
 
-/*== Formulär ======================================================================================================================*/
+/*== Formulär ===================================================================*/
 
                 #form 
                 {
@@ -117,12 +125,28 @@ h1{font-weight: bold; text-align: center; }
 /*== Knappar ====================================================================*/
 #submitButton /*Skicka-knapp*/
     {
-    /*background-color: #57EB44;
-    border: 1px solid #787879;
-    color: #787879;*/
     float: right;
     font-weight: bold;
     margin-bottom: 10px;
     margin-right: 15px;
     padding: 5px;
     }
+    
+    
+/*== PopUp ===================================================================*/
+
+    #pop
+    {
+    background-color: #57EB44;
+    border: groove #6A6A6B 5px;
+    border-radius: 20px;
+    color: #6A6A6B;
+    float: none;
+    margin: 40px;
+    padding: 40px;
+    }
+    
+    
+    
+    
+    

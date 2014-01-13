@@ -14,33 +14,37 @@
             
             <div id="content">
                 
-                 <div id="form">
-                        <form method="POST" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php">
+                <div id="form">
+                    <form name="form" action="http://voyager.lnu.se/tekinet/kurser/dtt/wp_webbteknik/process_form.php" method="POST" >
                         
-                            <fieldset>
-                            <legend>Fyll i din betalningsplan</legend>
-                            <p><label for="fname">Förnamn:</label><br>
-                                <input class="test" type="text" id="fname" name="fname" placeholder="Förnamn" required /></p>
-                            <p><label for="lname">Efternamn:</label><br>
-                                <input class="test" type="text" id="lname" name="lname" placeholder="Efternamn" required/></p>
-                            <p><label for="pnr">Postnummer:</label><br>
-                                <input class="test" type="text" id="pnr" name="pnr" placeholder="12345" required/></p>
-                            <p><label for="email">E-post:</label><br>
-                                <input class="test" type="email" id="email" name="email" placeholder="epost@adress.com" required/></p>
-                            
-                            <p><label>Prismodell:</label><br>
-                                <select class="test" name="price" id="price"> 
-                                    <option value="def" >Välj alternativ</option>
-                                    <option value="low" >Låg</option>
-                                    <option value="middle" >Mellan</option>
-                                    <option value="high" >Hög</option>
-                                </select>
-                            </p>
-                            <button id="submitButton" name="submitButton" type="submit" type="submit">Skicka!</button>
-                            </fieldset>
-                        </form>
-                        </div>
+                        <fieldset>
+                        <legend>Fyll i din betalningsplan</legend>
+                        <p><label for="fname">Förnamn:</label><br>
+                            <input class="test" type="text" id="fname" name="fname" placeholder="Förnamn" required /></p>
+                        <p><label for="lname">Efternamn:</label><br>
+                            <input class="test" type="text" id="lname" name="lname" placeholder="Efternamn" required/></p>
+                        <p><label for="pnr">Postnummer:</label><br>
+                            <input class="test" type="text" id="pnr" name="pnr" placeholder="12345" required/></p>
+                        <p><label for="email">E-post:</label><br>
+                            <input class="test" type="email" id="email" name="email" placeholder="epost@adress.com" required/></p>
+                        
+                        <p><label>Prismodell:</label><br>
+                            <select class="test" name="price" id="price"> 
+                                <option value="def" >Välj alternativ</option>
+                                <option value="Låg" >Låg</option>
+                                <option value="Mellan" >Mellan</option>
+                                <option value="Hög" >Hög</option>
+                            </select>
+                        </p>
+                        <button id="submitButton" name="submitButton" type="button">Genomför köp!</button>
+                        </fieldset>
+                    </form>
+                </div>
             
+                <div id="pop">
+                    
+                    
+                </div>
             
 	        </div>
         

@@ -3,8 +3,12 @@
 var validation = validation || {};
 
 validation.Form = function(){
+    var form = document.getElementById("form");
+    //Alla fält i formuläret
     var formOne = document.getElementsByClassName("test");
     var subButton = document.getElementById("submitButton");
+    
+    var formLength = formOne.length;
     
     //Ej tal
     var regExpName = /^\D+$/;
@@ -26,8 +30,6 @@ validation.Form = function(){
     var notPnr = "Postnumret är felaktigt";
     var notEmail = "Eposten är felaktig";
     
-    var i;
-    
     formOne[0].focus();
     //Select funkar ej!!!
     /*formOne[0].select();
@@ -36,17 +38,17 @@ validation.Form = function(){
         this.select();
         };
     }*/
-    
+
     subButton.disabled = true;
     checkAll();
     
     
     
     function checkAll(){
-        for(i = 0; i < formOne.length; i++){
+        for(var i = 0; i < formLength; i++){
             formOne[i].onchange = function(){
                 checkOne(this);
-                checkReady();
+                checkIfReady();
                 };
             }
         }
@@ -78,7 +80,7 @@ validation.Form = function(){
                 setPnr(node);
                 }
             removeErrorMessage(node);
-            node.setAttribute("class", "ok");
+            node.setAttribute("valid", "true");
             }
         else{
             if(input === ""){
@@ -94,7 +96,7 @@ validation.Form = function(){
     function validSelect(node){
         if(node.value !== "def"){
             removeErrorMessage(node); 
-            node.setAttribute("class", "ok");
+            node.setAttribute("valid", "true");
             }
         else{
             setErrorMessage(node, noChoice);
@@ -113,12 +115,12 @@ validation.Form = function(){
         var mess = document.createTextNode(text);
         newT.appendChild(mess);
         
-        if(node.className === "notValid"){
+        if(node.getAttribute("valid") === "false"){
             var oldT = document.getElementById("errorTag");
             oldT.parentNode.replaceChild(newT, oldT);
             }
         else{
-            node.setAttribute("class", "notValid");
+            node.setAttribute("valid", "false");
             node.parentNode.appendChild(newT);
             }
         node.focus();
@@ -126,46 +128,89 @@ validation.Form = function(){
     
     //Tar bort felmeddelande
     function removeErrorMessage(node){
-        var removeT = document.getElementById("errorTag");
-        if(removeT !== null){
-            removeT.parentNode.removeChild(removeT);
+        var removeT = node.parentNode.lastChild;
+        if(removeT.id === "errorTag"){
+            node.parentNode.removeChild(removeT);
             }
         }
     
-    function checkReady(){
+    function checkIfReady(){
         var count = 0;
-        for(i = 0; i < formOne.length; i++){
-            if(formOne[i].class === "test"){
+        for(var i = 0; i < formLength; i++){
+            if(formOne[i].getAttribute("valid") === "true"){
                 count +=1;
                 }
             }
-        if(count === formOne.length){
+        if(count === formLength){
                 subButton.disabled = false;
+                subButton.onclick = lastCheck;
+                }
+        else{
+            subButton.disabled = true;
+            }
+        }
+       
+    //2:a validering när allt e klart    
+    function lastCheck(){
+        var count = 0;
+        for(var i = 0; i < formLength; i++){
+            var answer = formOne[i];
+            checkOne(answer);
+            if(formOne[i].getAttribute("valid") === "false"){
+                subButton.disabled = true;
+                
+                }
+            else{
+                      count +=1;  
+                }
+            }
+            if(count === formLength){
+                output();
             }
         }
         
-function checkForm(){
-        var error = false;
-        for(i = 0; i < formOne.length; i++){
-            checkOne(formOne[i]);
-            if(formOne[i].class !== "ok"){
-                error = true;
-                }
-            else{
-                output(error);        
-            }
-            return error;
-        }
+    function popUp(){
+        var pop = document.getElementById("pop");
+        var phead = document.createElement("div");
+        var ptext = document.createElement("div");
+        var pfoot = document.createElement("div");
+        var h2 = document.createElement("h2");
+        var pheader = document.createTextNode("Vänligen bekräfta ditt köp!");
+        
+        h2.appendChild(pheader);
+        pheader.appendChild(phead);
+        ptext.appendChild(output());
+        pfoot.appendChild(validButtons());
+        
+        pop.appendChild(phead, ptext, pfoot);
     }
-     
-    function output(error){
-        var fValues = [];
-        for(var element in formOne){
-            fValues.push(element.label.value + ": " + element.value);
+    
+    function output(){
+        var ul = document.createElement("ul");
+        for(var i = 0; i < formLength; i++){
+            var li = document.createElement("li");
+            var field = formOne[i];
+            var line = document.createTextNode(field.parentNode.firstChild.textContent + field.value);
+            li.appendChild(line);
+            ul.appendChild(li);
             }
-        error.confirm(fValues);
-        return error;
+        return ul;
+            
+        
+        /*var fValues = [];
+        for(var i = 0; i < formLength; i++){
+            var field = formOne[i];
+            fValues.push(field.parentNode.firstChild.textContent + field.value);
+            }
+            alert(fValues);
+        */
         }
+        
+    function validButtons(){
+        
+        
+    }
+    
 };
 
 window.onload = function () {
