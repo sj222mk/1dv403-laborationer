@@ -7,6 +7,8 @@ validation.Form = function(){
     //Alla fält i formuläret
     var formOne = document.getElementsByClassName("test");
     var subButton = document.getElementById("submitButton");
+    var shadow = document.getElementById("overlay");
+    var pop = document.getElementById("pop");
     
     var formLength = formOne.length;
     
@@ -38,7 +40,9 @@ validation.Form = function(){
         this.select();
         };
     }*/
-
+    
+    pop.setAttribute("valid", "false");
+    shadow.setAttribute("visible", "false");
     subButton.disabled = true;
     checkAll();
     
@@ -165,36 +169,89 @@ validation.Form = function(){
                 }
             }
             if(count === formLength){
-                output();
+                popUp();
             }
         }
-        
+    
+    //Visa pop-upp-ruta
     function popUp(){
-        var pop = document.getElementById("pop");
-        var phead = document.createElement("div");
-        var ptext = document.createElement("div");
-        var pfoot = document.createElement("div");
-        var h2 = document.createElement("h2");
-        var pheader = document.createTextNode("Vänligen bekräfta ditt köp!");
+        //mörka bakgrund
+        shadow.setAttribute("visible", "true");
+        //inaktivera alla fält och knappar i bakgrund
+        pop.setAttribute("valid", "true");
+        createPopUp();
         
-        h2.appendChild(pheader);
-        pheader.appendChild(phead);
-        ptext.appendChild(output());
-        pfoot.appendChild(validButtons());
-        
-        pop.appendChild(phead, ptext, pfoot);
     }
     
-    function output(){
-        var ul = document.createElement("ul");
+    //HTML i pop-upp-ruta
+    function createPopUp(){
+        var pHeader = document.createElement("div");
+        pHeader.id = "pheader";
+        var pContent = document.createElement("div");
+        pContent.id = "pcontent";
+        var pFooter = document.createElement("div");
+        pFooter.id = "pfooter";
+        var h2 = document.createElement("h2");
+        
+        var headerText = document.createTextNode("Vänligen bekräfta ditt köp!");
+        headerText.id = headerText;
+        h2.appendChild(headerText);
+        pHeader.appendChild(h2);
+        
+        var outPutLabel = document.createElement("div");
+        outPutLabel.id = "plabel";
+        pContent.appendChild(createPopLabel(outPutLabel));
+        
+        var outPutText = document.createElement("div");
+        outPutText.id = "ptext";
+        pContent.appendChild(createPopText(outPutText));
+        
+        //pfoot.appendChild(validButtons());
+        
+        pop.appendChild(pHeader);
+        pop.appendChild(pContent);
+        pop.appendChild(pFooter);
+    }
+    
+    //Labels i pop-up-ruta
+    function createPopText(output){
         for(var i = 0; i < formLength; i++){
-            var li = document.createElement("li");
             var field = formOne[i];
-            var line = document.createTextNode(field.parentNode.firstChild.textContent + field.value);
-            li.appendChild(line);
-            ul.appendChild(li);
+            var p = document.createElement("p");
+            var line1 = document.createTextNode(field.value);
+            p.appendChild(line1);
+            output.appendChild(p);
             }
-        return ul;
+        return output;
+        }
+        
+    //Text i pop-up-ruta
+    function createPopLabel(output){
+        for(var i = 0; i < formLength; i++){
+            var field = formOne[i];
+            var p = document.createElement("p");
+            var line1 = document.createTextNode(field.parentNode.firstChild.textContent);
+            p.appendChild(line1);
+            output.appendChild(p);
+            }
+        return output;
+        }
+        
+        
+        
+        
+        /*for(var i = 0; i < formLength; i++){
+            var field = formOne[i];
+            var p = document.createElement("p");
+            var line1 = document.createTextNode(field.parentNode.firstChild.textContent);
+            p.appendChild(line1);
+            var span2 = document.createElement("span");
+            var line2 = document.createTextNode(field.value);
+            span2.appendChild(line2);
+            p.appendChild(span2);
+            output.appendChild(p);
+            }
+        return output;*/
             
         
         /*var fValues = [];
@@ -204,7 +261,7 @@ validation.Form = function(){
             }
             alert(fValues);
         */
-        }
+        
         
     function validButtons(){
         
