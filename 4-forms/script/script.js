@@ -22,9 +22,6 @@ validation.Form = function(){
     //Email-form
     var regExpEmail = /^(?!\.)(\w|-|\.|#){1,64}(?!\.)@(?!\.)[-.a-zåäö0-9]{4,253}/;
     
-    //Ett valt alternativ
-    //var checkSelect = "price.value('def').checked ===;
-    
     //Felmeddelanden
     var blank = "Detta fält får inte lämnas tomt";
     var noChoice = "Du måste välja ett alternativ";
@@ -33,20 +30,15 @@ validation.Form = function(){
     var notEmail = "Eposten är felaktig";
     
     formOne[0].focus();
-    //Select funkar ej!!!
-    /*formOne[0].select();
-    for(i = 0; i < formOne.length; i++){
-        formOne[i].onfocus = function(){
-        this.select();
-        };
-    }*/
+//Select funkar ej???
     
     pop.setAttribute("valid", "false");
     shadow.setAttribute("visible", "false");
+    
+    subButton.type = "button";
     subButton.disabled = true;
+    
     checkAll();
-    
-    
     
     function checkAll(){
         for(var i = 0; i < formLength; i++){
@@ -175,16 +167,24 @@ validation.Form = function(){
     
     //Visa pop-upp-ruta
     function popUp(){
-        //mörka bakgrund
         shadow.setAttribute("visible", "true");
-        //inaktivera alla fält och knappar i bakgrund
+//inaktivera alla fält och knappar i bakgrund
         pop.setAttribute("valid", "true");
         createPopUp();
-        
+        }
+    
+    //Tar bort pop-upp-ruta
+    function popDown(){
+        deletePopUp();
+        pop.setAttribute("valid", "false");
+        shadow.setAttribute("visible", "false");
+//inaktivera alla fält och knappar i bakgrund
     }
     
     //HTML i pop-upp-ruta
     function createPopUp(){
+        var pContainer = document.createElement("div");
+        pContainer.id = "pcontainer";
         var pHeader = document.createElement("div");
         pHeader.id = "pheader";
         var pContent = document.createElement("div");
@@ -193,9 +193,7 @@ validation.Form = function(){
         pFooter.id = "pfooter";
         var h2 = document.createElement("h2");
         
-        var headerText = document.createTextNode("Vänligen bekräfta ditt köp!");
-        headerText.id = headerText;
-        h2.appendChild(headerText);
+        h2.appendChild(document.createTextNode("Vänligen bekräfta ditt köp!"));
         pHeader.appendChild(h2);
         
         var outPutLabel = document.createElement("div");
@@ -206,11 +204,10 @@ validation.Form = function(){
         outPutText.id = "ptext";
         pContent.appendChild(createPopText(outPutText));
         
-        //pfoot.appendChild(validButtons());
-        
-        pop.appendChild(pHeader);
-        pop.appendChild(pContent);
-        pop.appendChild(pFooter);
+        pContainer.appendChild(pHeader);
+        pContainer.appendChild(pContent);
+        pContainer.appendChild(createButtons(pFooter));
+        pop.appendChild(pContainer);
     }
     
     //Labels i pop-up-ruta
@@ -218,8 +215,7 @@ validation.Form = function(){
         for(var i = 0; i < formLength; i++){
             var field = formOne[i];
             var p = document.createElement("p");
-            var line1 = document.createTextNode(field.value);
-            p.appendChild(line1);
+            p.appendChild(document.createTextNode(field.value));
             output.appendChild(p);
             }
         return output;
@@ -230,44 +226,44 @@ validation.Form = function(){
         for(var i = 0; i < formLength; i++){
             var field = formOne[i];
             var p = document.createElement("p");
-            var line1 = document.createTextNode(field.parentNode.firstChild.textContent);
-            p.appendChild(line1);
+            p.appendChild(document.createTextNode(field.parentNode.firstChild.textContent));
             output.appendChild(p);
             }
         return output;
         }
         
+    function createButtons(node){
+        var popCancelButton = document.createElement("button");
+        popCancelButton.id = "popcancelbutton";
+        popCancelButton.appendChild(document.createTextNode("Ändra uppgifter"));
+        node.appendChild(popCancelButton);
+        popCancelButton.onclick = function(){
+            popDown();
+        };
         
-        
-        
-        /*for(var i = 0; i < formLength; i++){
-            var field = formOne[i];
-            var p = document.createElement("p");
-            var line1 = document.createTextNode(field.parentNode.firstChild.textContent);
-            p.appendChild(line1);
-            var span2 = document.createElement("span");
-            var line2 = document.createTextNode(field.value);
-            span2.appendChild(line2);
-            p.appendChild(span2);
-            output.appendChild(p);
-            }
-        return output;*/
-            
-        
-        /*var fValues = [];
-        for(var i = 0; i < formLength; i++){
-            var field = formOne[i];
-            fValues.push(field.parentNode.firstChild.textContent + field.value);
-            }
-            alert(fValues);
-        */
-        
-        
-    function validButtons(){
-        
-        
+        var popSubButton = document.createElement("button");
+        popSubButton.id = "popsubbutton";
+        popSubButton.type = "submit";
+        popSubButton.appendChild(document.createTextNode("Bekräfta ditt köp!"));
+        node.appendChild(popSubButton);
+        popSubButton.onclick = function(){
+            finalSubmit();    
+        };
+        return node;
     }
     
+    function deletePopUp(){
+        var pContainer = document.getElementById("pcontainer");
+        pop.removeChild(pContainer);
+    }
+    
+    function finalSubmit(){
+        popDown();
+        subButton.disabled = true;
+        form.submit();
+        //alert("Formuläret skickades!");
+        //window.location=window.location;
+    }
 };
 
 window.onload = function () {
