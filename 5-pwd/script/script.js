@@ -4,7 +4,8 @@ var DESKTOP = DESKTOP || {};
 
 DESKTOP.View = function(){
     var content = document.getElementById("content");
-    var miniWin;
+    var miniWin = undefined;
+    var winBody = undefined;
     
     createMiniWin();
     
@@ -21,6 +22,7 @@ DESKTOP.View = function(){
                 if(miniWin.class === "closed"){
                     miniWin.class = "open";
                     createWindowApp();
+                    DESKTOP.imageViewer(winBody);
                 }
             };
         }
@@ -45,7 +47,7 @@ DESKTOP.View = function(){
         closeButton.src = "pics/cancel.png";
         winHeader.appendChild(closeButton);
         
-        var winBody = document.createElement("div");
+        winBody = document.createElement("div");
         winBody.id = "windowBody";
         windowApp.appendChild(winBody);
         
@@ -69,11 +71,6 @@ window.onload = function () {
    DESKTOP.View();
 };  
 
-//Lägger till delete-knapp i meddelande
-        /*var imgClose = document.createElement("img");
-        imgClose.href = "#";
-        imgClose.src = "pics/remove24.png";
-        imgClose.class = "messageButtons";
-        imgClose.alt = "Ta bort-knapp";*/
+
         
         

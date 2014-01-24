@@ -110,7 +110,34 @@ body
 {
     background-color: #E2FF8C;
     height: 90%;
+    padding: 20px;
     width: 100%;
+}
+
+#windowBody a
+{
+    background-color: white;
+    border-radius: 2px;
+   
+    margin: 20px;
+    padding: 5px;
+   
+}
+
+#windowBody a img
+{
+    max-height: 30px;
+    max-width: 30px;
+}
+
+#closeButt
+{
+    border: 3px solid black;
+    float: left;
+    height: 40px;
+    margin-top: 54px;
+    margin-left: 10px;
+    width: 40px;
 }
 
 #windowFooter
