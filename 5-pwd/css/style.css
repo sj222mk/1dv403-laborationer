@@ -1,6 +1,7 @@
 /*== Layout =====================================================================*/
 #container
 	{
+    border: solid #003300 1px;
     border-radius: 20px;
     height: 720px;
     margin: 10%;
@@ -23,7 +24,7 @@
     
 #footer
     {
-    border-top: solid #57EB44 1px;
+    border-top: solid #003300 3px;
     height: 43px;
     margin-bottom: 0;
     overflow: auto;
@@ -40,11 +41,15 @@
 
 
 /*== Background-image ===========================================================*/
-#container 
+#container
     {
-    background-image: url('../pics/0.gif');
+    background-image: url('../pics/08.jpg');
     }
 
+#container[class="default"]
+    {
+    background-size: 960px 720px; 
+    }
 
 /*== Type =======================================================================*/
 body
@@ -62,9 +67,7 @@ body
     width: 45px;   
 }
 
-
 /*== PopUp ======================================================================*/
-
  
 #app
     {
@@ -139,7 +142,18 @@ body
     border-radius: 5px;
     margin: 1px;
     padding: 10px 0 5px 0;
-    
+}
+
+#windowBody a:hover
+{
+    opacity:0.8;
+    filter:alpha(opacity=8);
+}
+
+#windowBody a:focus
+{
+    border: solid 3px #57EB44;
+    text-decoration: none;
 }
 
 #closeButt

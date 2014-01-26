@@ -4,13 +4,13 @@ var DESKTOP = DESKTOP || {};
 
 DESKTOP.imageViewer = function(){
     var url = "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/";
+    var loader = document.getElementById("loader");
     var jSonData = null;
     var jSonLength = null;
     var maxHeight = 0;
     var maxWidth = 0;
     
     function getAjax(){
-        var loader = document.getElementById("loader");
         loader.style.display = "block";
         new DESKTOP.Ajax(url, function(text){
             if(text){
@@ -45,7 +45,9 @@ DESKTOP.imageViewer = function(){
         a.appendChild(getPic(i));
         
         a.onclick = function(){
-            setBackground(i);    
+            loader.style.display = "block";
+            setBackground(i);  
+            loader.style.display = "none";
         };
         
         li.appendChild(a);
@@ -67,7 +69,9 @@ DESKTOP.imageViewer = function(){
         }
         
     function setBackground(a){
-        document.getElementById("container").style.backgroundImage = String("url(" + jSonData[a].URL + ")");
+        var container = document.getElementById("container");
+        container.style.backgroundImage = String("url(" + jSonData[a].URL + ")");
+        container.setAttribute("class", "img");
     }
     
     getAjax();
