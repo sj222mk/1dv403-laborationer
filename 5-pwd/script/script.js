@@ -53,12 +53,22 @@ DESKTOP.View = function(){
         
         var winFooter = document.createElement("div");
         winFooter.id = "windowFooter";
+        winFooter.appendChild(loadImg());
         windowApp.appendChild(winFooter);
         
         closeButton.onclick =  function(){
             closeWindowApp(windowApp);
             };
         }
+    
+    function loadImg(){
+        var loader = document.createElement("img");
+        loader.id = "loader";
+        loader.href = "#";
+        loader.style.display = "block";
+        loader.src = "pics/ajax-loader.gif";
+        return loader;
+    }
     
     function closeWindowApp(windowApp){
         //var winApp = document.getElementById("app");
