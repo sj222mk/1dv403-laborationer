@@ -9,8 +9,6 @@ DESKTOP.imageViewer = function(){
     var maxHeight = 0;
     var maxWidth = 0;
     
-    getAjax();
-    
     function getAjax(){
         var loader = document.getElementById("loader");
         loader.style.display = "block";
@@ -45,6 +43,11 @@ DESKTOP.imageViewer = function(){
         a.id = i;
         
         a.appendChild(getPic(i));
+        
+        a.onclick = function(){
+            setBackground(i);    
+        };
+        
         li.appendChild(a);
         return li;
         }
@@ -62,4 +65,10 @@ DESKTOP.imageViewer = function(){
             maxWidth = Math.max(maxWidth, img.thumbWidth);
             });
         }
+        
+    function setBackground(a){
+        document.getElementById("container").style.backgroundImage = String("url(" + jSonData[a].URL + ")");
+    }
+    
+    getAjax();
 };

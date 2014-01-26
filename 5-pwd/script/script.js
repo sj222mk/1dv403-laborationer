@@ -4,10 +4,8 @@ var DESKTOP = DESKTOP || {};
 
 DESKTOP.View = function(){
     var content = document.getElementById("content");
-    var miniWin = undefined;
-    var winBody = undefined;
-    
-    createMiniWin();
+    var miniWin;
+    var winBody;
     
     function createMiniWin(){
         var footer = document.getElementById("footer");
@@ -23,9 +21,9 @@ DESKTOP.View = function(){
                     miniWin.class = "open";
                     createWindowApp();
                     DESKTOP.imageViewer(winBody);
-                }
-            };
-        }
+                    }
+                };
+            }
     
     function createWindowApp(){
         var windowApp = document.createElement("div");
@@ -68,13 +66,15 @@ DESKTOP.View = function(){
         loader.style.display = "block";
         loader.src = "pics/ajax-loader.gif";
         return loader;
-    }
+        }
     
     function closeWindowApp(windowApp){
         //var winApp = document.getElementById("app");
         windowApp.parentNode.removeChild(windowApp);
         miniWin.class = "closed";
-    }
+        }
+    
+    createMiniWin();
 };
 
 window.onload = function () {
